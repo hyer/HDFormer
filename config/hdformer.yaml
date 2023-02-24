@@ -1,0 +1,83 @@
+DATA:
+  data_name: H36M_AUG
+  data_path: ../../datasets/h36m_processed/structured_data
+  n_frames: 96
+  n_joints: 17
+  window_slide: 5
+  test_d2_type: data_2d_gt
+
+NETWORK:
+  arch: model_vertex
+  backbone: HDFormer
+  regressor_type: conv
+  edeg_importance_weighting: True
+  in_channels: 2
+  dropout: 0.3
+  residual: True
+  data_bn: True
+  PJN: True
+  attention_down: False
+  attention_up: False
+  attention_merge: True
+  max_hop: 4
+  experts: 16
+  t_kernel_1: 5
+  t_kernel_2: 5
+  t_kernel_3: 5
+  t_kernel_4: 5
+  regress_with_edge: False
+  share_tcn: False
+
+
+LOSS:
+  loss_fn: mpjpe
+  traj_loss: Norm_Loss(vec_length_list=[8,12,16,24], eps=1e-6, normalize=False, diff_order='L2')
+  traj_loss_weight: 0.1
+
+TRAIN:
+  deterministic: False
+  optimizer: AdaMod
+  log_dir:
+  use_sgd: False
+  sync_bn: True  # adopt sync_bn or not
+  train_gpu: [0]
+
+  workers: 8  # data loader workers
+  batch_size: 2  # batch size for training
+  batch_size_val: 2  # batch size for validation during training, memory and speed tradeoff
+  base_lr: 0.005
+  weight_decay: 0.00001
+  amsgrad: False
+  epochs: 110
+  start_epoch: 0
+  lr_decay_factor: 0.1
+  decay_milestones: [80,90,100]
+  manual_seed: 12345
+  print_freq: 10
+  save_freq: 1
+  weight:
+  resume:
+  evaluate: True  # evaluate on validation set, extra gpu memory needed and small batch_size_val is recommend
+  eval_freq: 1
+
+Distributed:
+  dist_url: tcp://127.0.0.1
+  dist_backend: 'nccl'
+  multiprocessing_distributed: True
+  world_size: 1
+  rank: 0
+
+
+TEST:
+  #  split: val  # split in [train, val and test]
+  test_workers: 4
+
+  test_gpu: [0]
+  test_batch_size: 256
+  model_path:
+
+  save_folder:
+
+
+
+
