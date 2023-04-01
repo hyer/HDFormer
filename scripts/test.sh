@@ -10,17 +10,16 @@ set -o pipefail
 export OMP_NUM_THREADS=10
 export KMP_INIT_AT_FORK=FALSE
 
-EXP_HOME=$3
-PYTHON=python3
+PYTHON=python
 
 dataset=H36M
 #dataset=MPIINF3DHP
 TEST_CODE=test.py
 
-exp_name=$1
-config=$2
+config=$1
+EXP_HOME=$2
 
-exp_dir=${EXP_HOME}/${dataset}/${exp_name}
+exp_dir=${EXP_HOME}
 model_dir=${exp_dir}/model
 result_dir=${exp_dir}/result
 now=$(date +"%Y%m%d_%H%M%S")

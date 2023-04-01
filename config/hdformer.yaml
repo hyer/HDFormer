@@ -1,5 +1,5 @@
 DATA:
-  data_name: H36M_AUG
+  data_name: H36M
   data_path: ../../datasets/h36m_processed/structured_data
   n_frames: 96
   n_joints: 17

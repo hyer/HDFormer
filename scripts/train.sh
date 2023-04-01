@@ -10,14 +10,13 @@ set -o pipefail
 export OMP_NUM_THREADS=10
 export KMP_INIT_AT_FORK=FALSE
 
-PYTHON=python3
+PYTHON=python
 dataset=H36M
 # dataset=MPIINF3DHP
 TRAIN_CODE=train.py
 TEST_CODE=test.py
-exp_name=$1
-config=$2
-EXP_HOME=$3
+config=$1
+EXP_HOME=$2
 
 exp_dir=${EXP_HOME}
 model_dir=${exp_dir}/model
