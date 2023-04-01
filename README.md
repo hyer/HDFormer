@@ -17,15 +17,7 @@ Set the dataset path `data_path` in `config/hdformer.yaml`. Note that the Human3
 
 
 # Citation
-```bibtex
-@article{h36m_pami,
-  author = {Ionescu, Catalin and Papava, Dragos and Olaru, Vlad and Sminchisescu, Cristian},
-  title = {Human3.6M: Large Scale Datasets and Predictive Methods for 3D Human Sensing in Natural Environments},
-  journal = { IEEE Transactions on Pattern Analysis and Machine Intelligence}，
-  publisher = {IEEE Computer Society}，
-  year = {2014}
-}
-```
+
 ```bibtex
 @article{chen2023-hdformer,
   title = {HDFormer: High-order Directed Transformer for 3D Human Pose Estimation},
@@ -33,5 +25,15 @@ Set the dataset path `data_path` in `config/hdformer.yaml`. Note that the Human3
   year = {2023},
   eprint = {2302.01825},
   doi = {10.48550/arXiv.2302.01825},
+}
+```
+
+```bibtex
+@article{h36m_pami,
+  author = {Ionescu, Catalin and Papava, Dragos and Olaru, Vlad and Sminchisescu, Cristian},
+  title = {Human3.6M: Large Scale Datasets and Predictive Methods for 3D Human Sensing in Natural Environments},
+  journal = { IEEE Transactions on Pattern Analysis and Machine Intelligence}，
+  publisher = {IEEE Computer Society}，
+  year = {2014}
 }
 ```
